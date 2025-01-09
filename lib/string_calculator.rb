@@ -9,6 +9,7 @@ class StringCalculator
               else
                 input.split(/,|\n/)
               end.map(&:to_i)
+    numbers = numbers.reject { |n| n > 1000 }
 
     negatives = numbers.select { |n| n < 0 }
     raise "Negatives not allowed: #{negatives.join(', ')}" unless negatives.empty?
