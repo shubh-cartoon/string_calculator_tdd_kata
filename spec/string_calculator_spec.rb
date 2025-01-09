@@ -33,5 +33,13 @@ RSpec.describe StringCalculator do
     it "ignores numbers greater than 1000" do
       expect(StringCalculator.add("2,1001,6")).to eq(8)
     end
+
+    it "supports delimiters of any length" do
+      expect(StringCalculator.add("//[***]\n1***2***3")).to eq(6)
+    end
+
+    it "supports multiple delimiters" do
+      expect(StringCalculator.add("//[*][%]\n1*2%3")).to eq(6)
+    end
   end
 end
